@@ -1,0 +1,14 @@
+Entidades para o BD
+Entidades
+*ONG
+*Caso(incident)
+
+Funcionalidades
+*Login de ONG
+*Cadastro de ONG
+*Logout de ONG
+*Cadastrar novos casos
+*Delete casos 
+*Listar casos específicos de uma ONG
+*Listar todos os casos
+*Entrar em contato com a ONG

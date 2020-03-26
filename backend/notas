@@ -1,0 +1,100 @@
+framework é uma biblioteca que fornece um conjunto de funcionalidades que todo projeto node tem
+
+React & SPA
+
+Entendo o React
+
+Abordagem tradicional
+ Na Abordagem tradicional, a cada requisição, o serivdor retorna o conteúdo completo da página, contendo todo HTML e CSS.
+ Essa Abordagem limita o front-end para o brownser já que oaplicativo mobile ou serviços extremos não vão conseguir interpretar o html
+
+ Representação
+ A web é a requisição e o Html, css, js é a resposta em HTML para o browser mostrar na tela.. quem faz o trabalho pesado é o backend, lidando com RN etc 
+
+ Abordagem de SPA(Single Pag Aplication(Aplicação em uma única página só))
+ Na abordagem de SPA, as requisições trazem apenas dados como respostas e, com esses dados, o front-end pode preencher as info em tela.
+ A página nunca recarrega, otimizando a perfomance e dando vida ao conceito de SPA. Retornando apenas JSON podemos ter quantos front-ends quisermos
+
+ RepresentaçãoA web faz a requisição para o node e da a resposta(JSON) para a web(html,css,js)
+
+
+                Aula 02
+
+
+
+const express = require('express');
+//./ para dizer que é um arquivo e não uma rota
+const routes = require('./routes');
+const app = express();
+//ta falando pro express converter o corpo(body) para json
+app.use(express.json());
+//está acessando essa rota no método get
+/*métodos http
+
+GET: buscar uma info do back-end, listar(ex: listar uma lista de usuários)
+POST: Criar uma info no back-end
+PUT: Alterar uma info no back-end
+DELETE: Deletar uma info no back-end
+isso tudo são tudo rotas
+*/
+/*
+    Tipos de Parâmetros:
+
+    Query: Parâmetros noemados enviados na rota após o "?" servem para (Filtoros, paginação)
+     Route Params: Parãmetros utilizados para identificar recursos
+     Não acessa através do query, e sim pelo params
+
+    Request Body: é o que sobra, é o corpo da requisição, utilizado para criar ou alterar recursos(possui criar um campo só)
+*/
+
+
+//request guarda todos os dados que vem atrás da nossa requisição, do user
+//response aguarda uma resposta do usuario
+
+//tudo o que vem dps da /:id tudo q vem dps da barra de user é a id do users
+//abaixo fez uma aplicação, dentro dela está faznd um parãmetro
+
+/*
+    BD de SQL: MySQL, SQLite, PostgreSQL, Oracle, Microsoft SQL Server
+    NoSQL: MongoDB, CouchDB, etc
+
+    SQL é o bd mais utilizado no mercado
+    SQLite não precisa instalar nada
+
+
+*/
+
+/*
+    Driver: SELECT * FROM users
+    Query Builder: table('user').select('*').where()
+
+
+*/
+
+
+/*routes.post('/users', (request, response) =>{
+    //quer retornar uma resposta, usa o response. use send(tipo um print) para mandar o texto, tem o formato json dps do . tbm
+        const body = request.body;
+    
+        console.log(body);
+    
+        return response.json({
+            evento: 'Semana Omnistack 11.0',
+            aluno: 'Pedro'
+        });
+    });
+*/
+
+// continuação do video
+app.use(routes);
+
+
+
+
+app.listen(3333);
+
+//dps da / vem os recursos, a rota, o recurso que quer acessar, a rota é o recurso completo... ex .../user que acessar o recurso de usuário
+// code . no terminal para entrar no VS code já na pasta desejada
+//método HTTP
+//para usar o servidor localhost node index.js
+//para executar o serivdor dnv(com o nodemon), use o npm start
